@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+import Home from './booking/Home';
+import Login from './auth/Login';
+import Register from './auth/Register';
 import './App.css';
 
 function App() {
   return (
     <div >
-      <h1>LUCID Pressure Cleaing</h1>
+      <Home/>
+      <Register/>
+      <Login/>
+
+      
     </div>
   );
 }
