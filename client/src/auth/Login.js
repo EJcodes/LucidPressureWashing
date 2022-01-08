@@ -1,6 +1,6 @@
 const Login = () => {
     return (
-        <div classname="container-fluid h1 p-5 text-center"> 
+        <div className="container-fluid h1 p-5 text-center"> 
         Starting with the Homepage
         </div>
     )
