@@ -1,10 +1,21 @@
 import express from "express";
-import fs from 'fs';
+import { readdirSync } from 'fs';
+import cors from 'cors';
+import mongoose from 'mongoose';
+const morgan =require("morgan");
+require('dotenv').config();
 
 const app = express();
+//db connection
+mongoose.connect(process.env.DATABASE).then(()=> console.log('DB Connected'))
+.catch(() => console.log('DB Connection Failed', err));
 
+//middlewares
+app.use(cors());
+app.use(morgan("dev"));
 //route middleware 
-fs.readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
+readdirSync("./routes").map((r) => app.use("/api", require(`./routes/${r}`)));
 
+const port = process.env.PORT || 6000;
 
-app.listen(8000, () => console.log(`whats good this is the server on port 8000`));
+app.listen(port, () => console.log(`whats good this is the server on port ${port}`));
