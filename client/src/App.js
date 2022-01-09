@@ -3,21 +3,6 @@ import Home from './booking/Home';
 import Login from './auth/Login';
 import Register from './auth/Register';
 
-
-const TopNav = () => (
-  <div className=" nav bg-light d-flex justify-content-between">
-    <Link className="nav-link" to="/">
-      Home
-    </Link>
-    <Link className="nav-link" to="/register">
-      Register
-    </Link>
-    <Link className="nav-link" to="/login">
-      Login
-    </Link>
-  </div>
-)
-
 function App() {
   return (
     <Router>
