@@ -7,7 +7,7 @@ import TopNav from './components/TopNav'
 function App() {
   return (
     <Router>
-      {TopNav()}
+      <TopNav />
     <Routes>
       <Route exact path="/" element={<Home/>} />
       <Route exact path="/login" element={<Login/>} />
