@@ -13,3 +13,5 @@ const TopNav = () => (
       </Link>
     </div>
   )
+
+  export default TopNav;
