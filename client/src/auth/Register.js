@@ -13,14 +13,14 @@ const Register = () => {
     const [ mobilePhone, setMobilePhone ] = useState('');
     const [ address, setAddress ] = useState('');
     const [ city, setCity ] = useState('');
-    const [ state, setState ] = useState('');
+    const [ yourState, setYourState ] = useState('');
     const [ zipCode, setZipCode ] = useState('');
     const [ squareFootage, setSquareFootage ] = useState('');
     const [ password, setPassword ] = useState('');
 
     const  handleSubmit = (e) =>{
         e.preventDefault()
-        console.table({firstName,lastName,mobilePhone,address,city,state,zipCode,squareFootage,email,password});
+        console.table({firstName,lastName,mobilePhone,address,city,yourState,zipCode,squareFootage,email,password});
     }
     const registerForm = () =>  (
         <form onSubmit={handleSubmit} className="mt-3">
@@ -40,6 +40,7 @@ const Register = () => {
                 <label className="form-label">Property Information</label>
                     <input type="text" className="form-control mb-1 " placeholder="Address" value={address} onChange={e => setAddress(e.target.value)}></input>
                     <input type="text" className="form-control mb-1" placeholder="City" value={city} onChange={e => setCity(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="State" value={yourState} onChange={e => setYourState(e.target.value)}></input>
                     <input type="text" className="form-control mb-1" placeholder="zip code" value={zipCode} onChange={e => setZipCode(e.target.value)}></input>
                     <input type="text" className="form-control mb-1" placeholder="House square footage" value={squareFootage} onChange={e => setSquareFootage(e.target.value)}></input>
             </div>
