@@ -18,35 +18,36 @@ const Register = () => {
     const [ squareFootage, setSquareFootage ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const  handleSubmit = () =>{
-        alert('send user info to backend')
+    const  handleSubmit = (e) =>{
+        e.preventDefault()
+        console.table()({firstName,lastName,mobilePhone,address,city,state,zipCode,squareFootage,email,password})
     }
     const registerForm = () =>  (
         <form onSubmit={handleSubmit} className="mt-3">
             <div className="form-group mb-3">
                 <label className="form-label">Homeowner Information</label>
-                    <input type="text" className="form-control" placeholder="First name" value={setFName} onChange={ e => setFName(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="First name" value={setFName} onChange={ e => setFName(e.target.value)}></input>
                     {/* <input type="text" className="form-control" placeholder="Middle name" value={setMName} onChange={ e => setMName(e.target.value)}></input> */}
-                    <input type="text" className="form-control" placeholder="Last name" value={setLName}  onChange={ e => setLName(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="Last name" value={setLName}  onChange={ e => setLName(e.target.value)}></input>
                     {/* <input type="text" className="form-control" placeholder="License Number" value={setLicenseNumber}  onChange={ e => setLicenseNumber(e.target.value)}></input> */}
                     {/* <input type="text" className="form-control" placeholder="Date of Birth" value={setDateOfBirth} onChange={ e => setDateOfBirth(e.target.value)}></input> */}
-                    <input type="text" className="form-control" placeholder="Mobile phone number" value={setMobilePhone} onChange={ e => setMobilePhone(e.target.value)}></input>
-                    <input type="text" className="form-control" placeholder="Email" value={setEmail} onChange={ e => setEmail(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="Mobile phone number" value={setMobilePhone} onChange={ e => setMobilePhone(e.target.value)}></input>
+                    <input type="email" className="form-control mb-1" placeholder="Email" value={setEmail} onChange={ e => setEmail(e.target.value)}></input>
             </div>
         
 
             <div className="form-group mb-1">
                 <label className="form-label">Property Information</label>
-                    <input type="text" className="form-control" placeholder="Address" value={setAddress} onChange={e => setAddress(e.target.value)}></input>
-                    <input type="text" className="form-control" placeholder="City" value={setCity} onChange={e => setCity(e.target.value)}></input>
-                    <input type="text" className="form-control" placeholder="zip code" value={setZipCode} onChange={e => setZipCode(e.target.value)}></input>
-                    <input type="text" className="form-control" placeholder="House square footage" value={setSquareFootage} onChange={e => setSquareFootage(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1 " placeholder="Address" value={setAddress} onChange={e => setAddress(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="City" value={setCity} onChange={e => setCity(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="zip code" value={setZipCode} onChange={e => setZipCode(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="House square footage" value={setSquareFootage} onChange={e => setSquareFootage(e.target.value)}></input>
             </div>
 
             <div className="form-group mb-1">
                 <label className="form-label">Account Password</label>
-                    <input type="text" className="form-control" placeholder="Address" value={setPassword} onChange={e => setPassword(e.target.value)}></input>
-                    <input type="text" className="form-control" placeholder="Address" value={setPassword} onChange={e => setPassword(e.target.value)}></input>  
+                    <input type="text" className="form-control" placeholder="Password" value={setPassword} onChange={e => setPassword(e.target.value)}></input>
+                    
             </div>
             <button className="btn btn-primary">Submit</button>
         </form>
