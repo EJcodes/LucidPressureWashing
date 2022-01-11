@@ -13,7 +13,7 @@ const Register = () => {
     const [ mobilePhone, setMobilePhone ] = useState('');
     const [ address, setAddress ] = useState('');
     const [ city, setCity ] = useState('');
-    const [ state, State ] = useState('');
+    const [ state, setState ] = useState('');
     const [ zipCode, setZipCode ] = useState('');
     const [ squareFootage, setSquareFootage ] = useState('');
     const [ password, setPassword ] = useState('');
@@ -26,13 +26,13 @@ const Register = () => {
         <form onSubmit={handleSubmit} className="mt-3">
             <div className="form-group mb-3">
                 <label className="form-label">Homeowner Information</label>
-                    <input type="text" className="form-control mb-1" placeholder="First name" value={setFName} onChange={ e => setFName(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="First name" value={firstName} onChange={ e => setFName(e.target.value)}></input>
                     {/* <input type="text" className="form-control" placeholder="Middle name" value={setMName} onChange={ e => setMName(e.target.value)}></input> */}
-                    <input type="text" className="form-control mb-1" placeholder="Last name" value={setLName}  onChange={ e => setLName(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="Last name" value={lastName}  onChange={ e => setLName(e.target.value)}></input>
                     {/* <input type="text" className="form-control" placeholder="License Number" value={setLicenseNumber}  onChange={ e => setLicenseNumber(e.target.value)}></input> */}
                     {/* <input type="text" className="form-control" placeholder="Date of Birth" value={setDateOfBirth} onChange={ e => setDateOfBirth(e.target.value)}></input> */}
-                    <input type="text" className="form-control mb-1" placeholder="Mobile phone number" value={setMobilePhone} onChange={ e => setMobilePhone(e.target.value)}></input>
-                    <input type="email" className="form-control mb-1" placeholder="Email" value={setEmail} onChange={ e => setEmail(e.target.value)}></input>
+                    <input type="text" className="form-control mb-1" placeholder="Mobile phone number" value={mobilePhone} onChange={ e => setMobilePhone(e.target.value)}></input>
+                    <input type="email" className="form-control mb-1" placeholder="Email" value={email} onChange={ e => setEmail(e.target.value)}></input>
             </div>
         
 
