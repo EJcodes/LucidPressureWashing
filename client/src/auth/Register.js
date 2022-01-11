@@ -20,10 +20,26 @@ const Register = () => {
     const [ squareFootage, setSquareFootage ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-        console.table({firstName,lastName,mobilePhone,address,city,yourState,zipCode,squareFootage,email,password});
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try{
+            const res = await axios.post(`http://localhost:8000/api/register`, {
+                firstName,
+                lastName,
+                email,
+                mobilePhone,
+                address,
+                city,
+                yourState,
+                zipCode,
+                squareFootage,
+                password,
+            });
+            console.log('REGISTER USER ======> ', res)
+        } catch (err) {
+            console.log(err);
+        }
+    };
   
 
     return (
