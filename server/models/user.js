@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 const {Schema} = mongoose;
 
 const userSchema = new Schema({
@@ -57,5 +58,11 @@ const userSchema = new Schema({
 },
 { timestamps: true }
 );
+
+userSchema.pre('save', function(next) => {
+    let user = this;
+
+
+})
 
 export default mongoose.model('User, userSchema');
