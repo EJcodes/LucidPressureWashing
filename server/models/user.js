@@ -59,8 +59,18 @@ const userSchema = new Schema({
 { timestamps: true }
 );
 
-userSchema.pre('save', function(next) => {
+userSchema.pre('save', function (next) {
     let user = this;
+    if(user.isModified('password')) {
+        return bcrypt.hash(this.password, 12, function (err, hash) {
+            if(err){
+                console.log('BCRYPT HASH ERR', err);
+                return next(err);
+            }
+            user.password = hash;
+            return next();
+        });
+    }
 
 
 })
