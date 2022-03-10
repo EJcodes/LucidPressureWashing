@@ -24,7 +24,7 @@ const RegisterForm = ({
     setPassword}) => (
         <form onSubmit={handleSubmit} className="mt-3">
             <div className="form-group mb-3">
-                <label className="form-label">Homeowner Information</label>
+                <label className="form-label">Client Information</label>
                     <input type="text" className="form-control mb-1" placeholder="First name" value={firstName} onChange={ e => setFName(e.target.value)}></input>
                     {/* <input type="text" className="form-control" placeholder="Middle name" value={setMName} onChange={ e => setMName(e.target.value)}></input> */}
                     <input type="text" className="form-control mb-1" placeholder="Last name" value={lastName}  onChange={ e => setLName(e.target.value)}></input>

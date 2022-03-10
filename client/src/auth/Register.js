@@ -1,16 +1,18 @@
 import React from 'react';
-import {useState} from 'react';
+import { useState } from 'react';
+import { Navigate, useNavigate }  from 'react-router-dom';
 import RegisterForm from '../components/RegisterForm';
 import axios from 'axios';
-
-
+import { toast } from 'react-toastify';
+import { register } from '../ actions/auth';
+import Login from '../auth/Login';
 
 const Register = () => {
-    const [ firstName, setFName ] = useState('');
     // const [ middleName, setMName ] = useState('');
-    const [ lastName, setLName ] = useState('');
     // const [ dateOfBirth, setDateOfBirth ] = useState('');
     // const [ licenseNumber, setLicenseNumber ] = useState('');
+    const [ firstName, setFName ] = useState('');
+    const [ lastName, setLName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ mobilePhone, setMobilePhone ] = useState('');
     const [ address, setAddress ] = useState('');
@@ -19,27 +21,36 @@ const Register = () => {
     const [ zipCode, setZipCode ] = useState('');
     const [ squareFootage, setSquareFootage ] = useState('');
     const [ password, setPassword ] = useState('');
+    let navigate = useNavigate();
+  
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         try{
-            const res = await axios.post(`http://localhost:8000/api/register`, {
-                firstName,
-                lastName,
-                email,
-                mobilePhone,
-                address,
-                city,
-                yourState,
-                zipCode,
-                squareFootage,
-                password,
-            });
-            console.log('REGISTER USER ======> ', res)
+            const res = await register({
+                    firstName,
+                    lastName,
+                    email,
+                    mobilePhone,
+                    address,
+                    city,
+                    yourState,
+                    zipCode,
+                    squareFootage,
+                    password,
+                });
+                console.log('REGISTER USER ======> ', res);
+                toast.success('Registration was successful. Please login.' );
+                //need to make register page redirect to log in page after resitration process is successful   
+                navigate('login')
         } catch (err) {
             console.log(err);
+            if(err.response.status === 400) toast.error(err.response.data);
         }
     };
+
+    
   
 
     return (
