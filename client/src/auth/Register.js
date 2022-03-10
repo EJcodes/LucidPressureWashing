@@ -27,7 +27,8 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try{
+        try {
+
             const res = await register({
                     firstName,
                     lastName,
@@ -39,7 +40,7 @@ const Register = () => {
                     zipCode,
                     squareFootage,
                     password,
-                });
+            });
                 console.log('REGISTER USER ======> ', res);
                 toast.success('Registration was successful. Please login.' );
                 //need to make register page redirect to log in page after resitration process is successful   
